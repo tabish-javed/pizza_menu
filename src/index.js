@@ -57,7 +57,7 @@ function App () {
     </div>);
 }
 
-function Pizza () {
+function Pizza () {     // <- This is JSX
   return (
     <div>
       <img src="pizzas/spinaci.jpg" alt="Pizza spinaci" />
