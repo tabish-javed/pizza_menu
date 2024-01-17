@@ -71,8 +71,13 @@ function Menu () {
   return (
     <main className="menu">
       <h2>Our menu</h2>
-      <Pizza name='Pizza Spinaci' ingredients='Tomato, mozarella, spinach, and ricotta cheese' photoName='pizzas/spinaci.jpg' price={10} />
-      <Pizza name='Pizza Funghi' ingredients='Tomato, mashrooms' price={12} photoName='pizzas/funghi.jpg'></Pizza>
+
+      <ul className="pizzas">
+        {pizzaData.map(pizza => <Pizza pizza={pizza} key={pizza.name}></Pizza>)}
+      </ul>
+
+      {/* <Pizza name='Pizza Spinaci' ingredients='Tomato, mozarella, spinach, and ricotta cheese' photoName='pizzas/spinaci.jpg' price={10} />
+      <Pizza name='Pizza Funghi' ingredients='Tomato, mashrooms' price={12} photoName='pizzas/funghi.jpg'></Pizza> */}
     </main>
   );
 }
@@ -80,14 +85,14 @@ function Menu () {
 
 function Pizza (props) {     // <- This is JSX
   return (
-    <div className="pizza">
-      <img src={props.photoName} alt={props.name} />
+    <li className="pizza">
+      <img src={props.pizza.photoName} alt={props.pizza.name} />
       <div>
-        <h3>{props.name}</h3>
-        <p>{props.ingredients}</p>
-        <span>{props.price}</span>
+        <h3>{props.pizza.name}</h3>
+        <p>{props.pizza.ingredients}</p>
+        <span>{props.pizza.price}</span>
       </div>
-    </div>
+    </li>
   );
 }
 
