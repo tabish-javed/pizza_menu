@@ -104,7 +104,7 @@ function Pizza (props) {     // <- This is JSX
 
 function Footer () {
   const hour = new Date().getHours();
-  const openHour = 20;
+  const openHour = 10;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   // console.log(isOpen);
@@ -114,17 +114,21 @@ function Footer () {
 
   return (
     <footer className="footer">
-      {isOpen ? (
-        <div className="order">
-          <p>
-            We're open until <strong>{closeHour}:00</strong>. Visit us or order online.
-          </p>
-          <button className="btn">Order</button>
-        </div>
-      ) : <p>We are happy to welcome you between <strong>{openHour}:00</strong> and <strong>{closeHour}:00</strong></p>}
-    </footer>
+      {isOpen ? <Order closeHour={closeHour}></Order> : <p>We are happy to welcome you between <strong>{openHour}:00</strong> and <strong>{closeHour}:00</strong></p>}
+    </footer >
   );
   // return React.createElement('footer', null, "We're currently open!");
+}
+
+function Order (props) {
+  return (
+    <div className="order">
+      <p>
+        We're open until <strong>{props.closeHour}:00</strong>. Visit us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
 }
 
 
