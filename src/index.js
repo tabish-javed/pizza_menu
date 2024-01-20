@@ -47,7 +47,6 @@ const pizzaData = [
   },
 ];
 
-
 function App () {
   return (
     <div className="container">
@@ -68,8 +67,8 @@ function Header () {
 }
 
 function Menu () {
-  // const pizzas = pizzaData;
-  const pizzas = [];
+  const pizzas = pizzaData;
+  // const pizzas = [];
   return (
     <main className="menu">
       <h2>Our menu</h2>
@@ -93,15 +92,15 @@ function Menu () {
 
 function Pizza ({ pizza }) {     // <- This is JSX
 
-  if (pizza.soldOut) return null;
+  // if (pizza.soldOut) return null;
 
   return (
-    <li className="pizza">
+    <li className={`pizza ${pizza.soldOut ? 'sold-out' : ''}`}>
       <img src={pizza.photoName} alt={pizza.name} />
       <div>
         <h3>{pizza.name}</h3>
         <p>{pizza.ingredients}</p>
-        <span>{pizza.price}</span>
+        <span>{pizza.soldOut ? 'SOLD OUT' : pizza.price}</span>
       </div>
     </li>
   );
