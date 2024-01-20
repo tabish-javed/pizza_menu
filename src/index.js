@@ -68,15 +68,20 @@ function Header () {
 }
 
 function Menu () {
-  const pizzas = pizzaData;
+  // const pizzas = pizzaData;
+  const pizzas = [];
   return (
     <main className="menu">
       <h2>Our menu</h2>
 
       {pizzas.length > 0 ? (
-        <ul className="pizzas">
-          {pizzas.map(pizza => <Pizza pizza={pizza} key={pizza.name}></Pizza>)}
-        </ul>
+        <React.Fragment>
+          <p>Authentic Italian cuisine. 6 creative dishes to choose from. All from our stone oven, all organic, all delicious</p>
+          <ul className="pizzas">
+            {pizzas.map(pizza => <Pizza pizza={pizza} key={pizza.name}></Pizza>)}
+          </ul>
+        </React.Fragment>
+
       ) : <p>We're still working on our menu. Please come back later.</p>}
 
       {/* <Pizza name='Pizza Spinaci' ingredients='Tomato, mozarella, spinach, and ricotta cheese' photoName='pizzas/spinaci.jpg' price={10} />
