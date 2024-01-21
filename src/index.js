@@ -80,7 +80,6 @@ function Menu () {
             {pizzas.map(pizza => <Pizza pizza={pizza} key={pizza.name}></Pizza>)}
           </ul>
         </React.Fragment>
-
       ) : <p>We're still working on our menu. Please come back later.</p>}
 
       {/* <Pizza name='Pizza Spinaci' ingredients='Tomato, mozarella, spinach, and ricotta cheese' photoName='pizzas/spinaci.jpg' price={10} />
